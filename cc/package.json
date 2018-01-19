@@ -1,0 +1,19 @@
+{
+  "name": "creditunioncc",
+  "version": "1.0.0",
+  "description": "Custom Components API for Ledcor ChatBot",
+  "main": "creditunioncc.js",
+  "license": "ISC",
+  "dependencies": {
+    "botkit-messenger-samples": "^1.1.0",
+    "joi": "^9.2.0",
+    "log4js": "^0.6.38",
+    "request": "^2.82.0"
+  },
+  "oracleMobile": {
+    "dependencies": {
+      "apis": {},
+      "connectors": {}
+    }
+  }
+}
