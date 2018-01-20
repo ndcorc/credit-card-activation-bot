@@ -12,7 +12,7 @@ auth_token = "de4b7dbad8a347a2b863e9f8f945b698"
 twilio_number = "+18325723251"
 client = Client(account_sid, auth_token)
 
-@app.route("/")
+@app.route("/hello")
 def hello():
     return "Hello World!"
 
