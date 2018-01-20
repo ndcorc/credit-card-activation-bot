@@ -112,5 +112,5 @@ def download_pkpass():
         return str(e)
 
 if __name__ == "__main__":
-    port = int(environ.get('PORT', 8080))
+    port = int(environ.get('PORT', 8188))
     app.run(host="0.0.0.0", port=port)
