@@ -38,7 +38,7 @@ module.exports = {
 				for (var i=0; i<img_nums.length; i++) {
 					images.push("https://raw.githubusercontent.com/ndc466/image_bank/master/credit_cards/" + img_nums[i]);
 				}
-		
+				var MessageModel = conversation.MessageModel();
 				var elements = [];
 				for (var i=0; i<images.length; i++) {
 					var element = {
@@ -54,7 +54,7 @@ module.exports = {
 					elements.push(element);
 					// conversation.reply(card);
 				}
-		
+				/*
 				var card =
 				{
 					"attachment": {
@@ -65,6 +65,12 @@ module.exports = {
 						}
 					}
 				};
+				*/
+				var payload = {
+					"template_type": "generic",
+					"elements": elements
+				}
+				var card = MessageModel.RawBotMessage(payload)
 				conversation.reply(card);
 				conversation.keepTurn(true);
 				conversation.transition(true);   
