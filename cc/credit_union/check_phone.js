@@ -22,7 +22,7 @@ module.exports = {
 
         var options = { 
             method: 'GET',
-            url: 'http://129.146.81.61:8080/check_mobile?mobile=' + phoneNumber,
+            url: 'http://129.146.81.61:8888/check_mobile?mobile=' + phoneNumber,
         };
 
         request(options, function (err, res, body) {

@@ -23,7 +23,7 @@ module.exports = {
         logger.debug('CheckCode: checking for user with address: ' + address);
         var options = { 
             method: 'GET',
-            url: 'https://CreditUnionAPI-gse00002305.apaas.em2.oraclecloud.com/check_address?mobile=' + phoneNumber + '&address=' + address,
+            url: 'http://129.146.81.61:8888/check_address?mobile=' + phoneNumber + '&address=' + address,
         };
 
         request(options, function (err, res, body) {

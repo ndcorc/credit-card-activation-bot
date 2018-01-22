@@ -24,7 +24,7 @@ module.exports = {
 
         var options = { 
             method: 'GET',
-            url: 'http://129.146.81.61:8080/check_code?mobile=' + phoneNumber + '&code=' + authCode,
+            url: 'http://129.146.81.61:8888/check_code?mobile=' + phoneNumber + '&code=' + authCode,
         };
 
         request(options, function (err, res, body) {

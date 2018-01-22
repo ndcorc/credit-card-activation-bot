@@ -29,7 +29,7 @@ module.exports = {
         console.log(cc_image);
 
         var wallet_badge = "https://support.apple.com/library/content/dam/edam/applecare/images/en_US/iOS/add-to-apple-wallet-logo.png";
-        var pkpass = "https://CreditUnionAPI-gse00002305.apaas.em2.oraclecloud.com/download.pkpass?cc="+cc_image;
+        var pkpass = "http://129.146.81.61:8888/download.pkpass?cc="+cc_image;
         
         var add_button = {
             "attachment": {

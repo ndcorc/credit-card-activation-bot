@@ -27,9 +27,9 @@ module.exports = {
 
         var options = { 
             method: 'GET',
-            url: 'http://129.146.81.61:8080/check_card?mobile=' + phoneNumber + '&cc=' + cc + '&cvc=' + cvc,
+            url: 'http://129.146.81.61:8888/check_card?mobile=' + phoneNumber + '&cc=' + cc + '&cvc=' + cvc,
         };
-        console.log('http://129.146.81.61:8080/check_card?mobile=' + phoneNumber + '&cc=' + cc + '&cvc=' + cvc);
+        console.log('http://129.146.81.61:8888/check_card?mobile=' + phoneNumber + '&cc=' + cc + '&cvc=' + cvc);
 
         request(options, function (err, res, body) {
             if (err) throw new Error(err);
