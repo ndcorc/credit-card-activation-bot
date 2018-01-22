@@ -63,7 +63,7 @@ var createComponentsServer = function(urlPath, config) {
 
     app.use(urlPath, router);
 
-	logger.info('* Running on http://0.0.0.0:8111' + urlPath);
+	logger.info('* Running on http://0.0.0.0:8008' + urlPath);
 
     app.locals.endpoints = [];
     app.locals.endpoints.push({
