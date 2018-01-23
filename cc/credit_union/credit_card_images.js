@@ -20,8 +20,6 @@ module.exports = {
     invoke: (conversation, done) => {
 
 		var phoneNumber = conversation.properties().phoneNumber;
-		var img_nums, cc_nums, images;
-		img_nums, cc_nums, images = [];
 
 		var options = { 
 			method: 'GET',
@@ -33,46 +31,20 @@ module.exports = {
 			console.log(body);
 			var data = JSON.parse(body);
 			if (data.success) {
-				img_nums = data.img_nums;
-				cc_nums = data.cc_nums;
+				var MessageModel = conversation.MessageModel();
+				var img_nums = data.img_nums;
+				var cc_nums = data.cc_nums;
+				
+				var cards = [];
 				for (var i=0; i<img_nums.length; i++) {
-					images.push("https://raw.githubusercontent.com/ndc466/image_bank/master/credit_cards/" + img_nums[i]);
+					var title = "Select this Card"
+					var url = "https://raw.githubusercontent.com/ndc466/image_bank/master/credit_cards/" + img_nums[i];
+					var action = MessageModel.postbackActionObject(cc_nums[i], null, cc_nums[i]);
+					var card = MessageModel.cardObject(title, null, url, null, action)
+					cards.push(card)
 				}
-				//var MessageModel = conversation.MessageModel();
-				var elements = [];
-				for (var i=0; i<images.length; i++) {
-					var element = {
-						"title": "Select this Card",
-						"subtitle": "",
-						"image_url": images[i],
-						"buttons": [{
-							"type": "postback",
-							"title": cc_nums[i],
-							"payload": cc_nums[i]
-						}]
-					};
-					elements.push(element);
-					// conversation.reply(card);
-				}
-				/*
-				var card =
-				{
-					"attachment": {
-						"type": "template",
-						"payload": {
-							"template_type": "generic",
-							"elements": elements
-						}
-					}
-				};
-				*/
-				var payload = {
-					"template_type": "generic",
-					"elements": elements
-				}
-				//MessageModel.RawBotMessage(payload)
-				var card = conversation.MessageModel(payload);
-				conversation.reply(card);
+				var txnCardConversationMessage = MessageModel.cardConversationMessage('horizontal', cards);
+				conversation.reply(txnCardConversationMessage);
 				conversation.keepTurn(true);
 				conversation.transition(true);   
 			} else {
