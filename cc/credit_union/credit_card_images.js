@@ -42,7 +42,7 @@ module.exports = {
 					var title = "Select this Card"
 					var url = "https://raw.githubusercontent.com/ndc466/image_bank/master/credit_cards/" + img_nums[i];
 					var action = MessageModel.postbackActionObject(cc_nums[i], null, cc_nums[i]);
-					var card = MessageModel.cardObject(title, null, url, null, action)
+					var card = MessageModel.cardObject(title, null, url, null, [action])
 					cards.push(card)
 				}
 				var txnCardConversationMessage = MessageModel.cardConversationMessage('horizontal', cards);
