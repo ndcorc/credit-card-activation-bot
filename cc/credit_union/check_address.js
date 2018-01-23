@@ -28,7 +28,7 @@ module.exports = {
 
         request(options, function (err, res, body) {
             if (err) throw new Error(err);
-            console.log(body);
+            console.log('\n\nCheckAddress\n_______________________________\n_______________________________\n'+body+'\n\n');
             var data = JSON.parse(body);
             if (data.success) {
                 conversation.transition("valid");

@@ -27,7 +27,7 @@ module.exports = {
 
         request(options, function (err, res, body) {
             if (err) throw new Error(err);
-            console.log(body);
+            console.log('\n\nCheckPhone\n_______________________________\n_______________________________\n'+body+'\n\n');
             var data = JSON.parse(body);
             if (data.success) {
                 var name = data.user["name"].split(" ");
