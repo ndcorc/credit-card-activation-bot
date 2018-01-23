@@ -28,7 +28,9 @@ module.exports = {
 		
 		request(options, function (err, res, body) {
 			if (err) throw new Error(err);
-			console.log(body);
+			var logMsg = '\nCreditCardImages\n______________________________________________________________\n'
+            logMsg +=  '______________________________________________________________\n'+body+'\n\n'
+            console.log(logMsg);
 			var data = JSON.parse(body);
 			if (data.success) {
 				var MessageModel = conversation.MessageModel();
