@@ -17,14 +17,14 @@ module.exports = {
     },
 
     invoke: (conversation, done) => {
-        var cardImage = JSON.parse(conversation.properties().cardImage);
+        var cardImage = JSON.parse(conversation.properties().cardImage)["url"];
         //logger.debug('ReadCard: reading card number for card with URL: ' + cardImage);
         console.log(cardImage);
 
         var options = { 
             method: 'POST',
             url: 'http://129.146.81.61:8888/read_card',
-            body: { "imageUrl": cardImage["url"] }
+            body: { "imageUrl": JSON.stringify(cardImage) }
         };
 
         request(options, function (err, res, body) {
