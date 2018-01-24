@@ -8,7 +8,7 @@ module.exports = {
 
     metadata: function metadata() {
         return {
-            "name": "CheckPhone",
+            "name": "ReadCard",
             "properties": {
                 "cardImage": { "type": "string", "required": true }
             },
