@@ -2,7 +2,8 @@ from flask import Flask, request, jsonify, render_template, send_file
 from twilio.rest import Client
 from os import environ
 from string import digits
-import json, random, base64
+import json, random, base64, requests
+import cc_ocr as ocr
 
 app = Flask(__name__)
 app.debug = True
@@ -47,7 +48,19 @@ def check_mobile():
     return jsonify({
         "success": False,
         "user": ""
-    }) 
+    })
+
+@app.route("/read_card", methods=['POST'])
+def get_card_number():
+    img64 = base64.b64encode(requests.get(request.form['imageUrl'].content))
+    card_type, card_number = ocr.get_card_number(img64)
+    return jsonify({
+        "success": True,
+        "data": {
+            "card_type": card_type,
+            "card_number": card_number
+        }
+    })
 
 @app.route("/check_card", methods=['GET'])
 def check_cc():
@@ -95,13 +108,6 @@ def get_image():
             "cc_nums": None
         })
 
-@app.route("/cc_image", methods=['GET'])
-def cc_image():
-    cc = request.args.get("cc")
-    print(cc)
-    with open("./data/cc_images/"+cc, "rb") as img_file:
-        png_file = base64.b64encode(img_file.read())
-    return render_template('cc_image.html', image=png_file)
 
 @app.route("/download.pkpass", methods=['GET'])
 def download_pkpass():
@@ -114,3 +120,14 @@ def download_pkpass():
 if __name__ == "__main__":
     port = int(environ.get('PORT', 8888))
     app.run(host="0.0.0.0", port=port)
+    
+    
+"""
+@app.route("/cc_image", methods=['GET'])
+def cc_image():
+    cc = request.args.get("cc")
+    print(cc)
+    with open("./data/cc_images/"+cc, "rb") as img_file:
+        png_file = base64.b64encode(img_file.read())
+    return render_template('cc_image.html', image=png_file)
+"""

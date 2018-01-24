@@ -37,7 +37,7 @@ module.exports = {
         var title = "Add To Wallet";
         var imgUrl = wallet_badge;
         var action = MessageModel.urlActionObject(null , imgUrl, pkpass);
-        var card = MessageModel.cardObject(title, null, null, null, [action])
+        var card = MessageModel.cardObject(title, null, null, null, [action]);
         var message = MessageModel.cardConversationMessage('horizontal', [card]);
 
         /*
