@@ -74,7 +74,7 @@ module.exports = {
         console.log(add_button);
         conversation.reply(add_button);
         */
-        conversation.keepTurn(true);
+        conversation.keepTurn(false);
         conversation.transition();
         done();
     }
