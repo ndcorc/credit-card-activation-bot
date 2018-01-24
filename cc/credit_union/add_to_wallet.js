@@ -12,7 +12,7 @@ module.exports = {
         return {
             "name": "AddToWallet",
             "properties": {
-                "cc_image": { "type": "string", "required": true },
+                "cardImage": { "type": "string", "required": true },
             },
             "supportedActions": []
         };
@@ -25,13 +25,13 @@ module.exports = {
             url: 'https://pscuAPI-gse00002305.apaas.em2.oraclecloud.com/add_to_wallet?mobile=' + phoneNumber,
         };
         */
-        var cc_image = conversation.properties().cc_image;
+        var cardImage = conversation.properties().cardImage;
         var logMsg = '\nAddToWallet\n______________________________________________________________\n'
-        logMsg +=  '______________________________________________________________\n'+cc_image+'\n\n'
+        logMsg +=  '______________________________________________________________\n'+cardImage+'\n\n'
         console.log(logMsg);
 
         var wallet_badge = "https://cdn.rawgit.com/ndc466/image_bank/638df57e/ios_icons/add-to-apple-wallet-badge.png";
-        var pkpass = "http://129.146.81.61:8888/download.pkpass?cc="+cc_image;
+        var pkpass = "http://129.146.81.61:8888/download.pkpass?cc="+cardImage;
         
         var MessageModel = conversation.MessageModel();
         var title = "Add To Wallet";
