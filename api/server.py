@@ -26,7 +26,7 @@ def check_mobile():
         users[mobile]['authCode'] = auth_code
         with open('./data/users.json', 'w') as f:
             json.dump(users, f)
-        auth_msg = "Your PSCU verification code is: " + auth_code
+        auth_msg = "Your 6 digit verification code is: " + auth_code
         client.messages.create(to=mobile, from_=twilio_number, body=auth_msg)
         addresses = []
         for user in users.keys():
