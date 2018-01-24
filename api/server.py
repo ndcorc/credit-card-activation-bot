@@ -63,13 +63,13 @@ def get_card_number():
     })
 
 @app.route("/check_card", methods=['GET'])
-def check_cc():
+def check_card():
     mobile = request.args.get("mobile")
-    cc = request.args.get("cc")
+    card_number = request.args.get("cardNumber")
     cvc = request.args.get("cvc")
     with open('./data/users.json', 'r') as f:    
         users = json.load(f)
-    if users[mobile]['cc'][-4:] == cc and users[mobile]['cvc'] == cvc:     
+    if users[mobile]['card_number'][-4:] == card_number and users[mobile]['cvc'] == cvc:     
         users[mobile]['activated'] = True
         with open('./data/users.json', 'w') as f:    
             json.dump(users, f)
