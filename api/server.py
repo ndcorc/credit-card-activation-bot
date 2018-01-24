@@ -56,9 +56,9 @@ def get_card_number():
     card_type, card_number = ocr.get_card_number(img64)
     return jsonify({
         "success": True,
-        "data": {
-            "card_type": card_type,
-            "card_number": card_number
+        "card": {
+            "type": card_type,
+            "number": card_number
         }
     })
 

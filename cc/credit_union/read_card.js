@@ -12,7 +12,7 @@ module.exports = {
             "properties": {
                 "cardImage": { "type": "string", "required": true }
             },
-            "supportedActions": [ "valid", "invalid" ]
+            "supportedActions": []
         };
     },
 
@@ -28,26 +28,18 @@ module.exports = {
 
         request(options, function (err, res, body) {
             if (err) throw new Error(err);
-            var logMsg = '\n\nCheckPhone\n______________________________________________________________\n'
-            logMsg +=  '______________________________________________________________\n'+body+'\n\n'
-            console.log(logMsg);
             var data = JSON.parse(body);
+            var logMsg = '\n\nReadCard\n______________________________________________________________\n'
+            logMsg +=  '______________________________________________________________\n'+data+'\n\n'
+            console.log(logMsg);
             if (data.success) {
-                var name = data.user["name"].split(" ");
-                var first = name[0];
-                var last = name[1];
-                var addresses = data.addresses[0];
-                for (var i=1; i<data.addresses.length; i++) {
-                    addresses += ", " + data.addresses[i];
-                }
-                conversation.variable("addresses", addresses);
-                conversation.variable("profile.firstName", first);
-                conversation.variable("profile.lastName", last);
-                conversation.variable("validAuthCode", data.user["authCode"]);
-                conversation.variable("validAddress", data.user["address"]);
-                conversation.transition("valid");
+                conversation.variable("cardType", data.card.type);
+                conversation.variable("cardNumber", data.card.number);
+				conversation.keepTurn(true);
+				conversation.transition(true); 
             } else {
-                conversation.transition("invalid");
+				conversation.reply({"text": "There seems to have been a problem."})
+				conversation.transition();
             }
             done();
         });
