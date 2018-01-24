@@ -40,36 +40,32 @@ module.exports = {
         //var card = MessageModel.cardObject(title, null, imgUrl, null, [action])
         //var message = MessageModel.cardConversationMessage('horizontal', [card]);
 
-        var add_button = {
-            "attachment": {
-                "type": "template",
-                "payload": {
-                    "template_type": "generic",
-                    "sharable": true, 
-                    "image_aspect_ratio": 'horizontal',
-                    "elements": [
+        
+        var payload = {
+            "template_type": "generic",
+            "sharable": true, 
+            "image_aspect_ratio": 'horizontal',
+            "elements": [
+                {
+                    "title": "Add To Wallet",
+                    "image_url": wallet_badge,
+                    "default_action": {
+                        "type": "web_url",
+                        "url": pkpass,
+                        "webview_height_ratio": "full"
+                    },
+                    "buttons": [
                         {
                             "title": "Add To Wallet",
-                            "image_url": wallet_badge,
-                            "default_action": {
-                                "type": "web_url",
-                                "url": pkpass,
-                                "webview_height_ratio": "full"
-                            },
-                            "buttons": [
-                                {
-                                    "title": "Add To Wallet",
-                                    "type": "web_url",
-                                    "url": pkpass,
-                                    "webview_height_ratio": "full"
-                                }
-                            ]
+                            "type": "web_url",
+                            "url": pkpass,
+                            "webview_height_ratio": "full"
                         }
                     ]
                 }
-            }
+            ]
         }
-        var message = MessageModel.rawConversationMessage(add_button);
+        var message = MessageModel.rawConversationMessage(payload);
 
         //conversation.reply(add_button);
         //var message = MessageModel.attachmentConversationMessage('image', imgUrl, [action]);
