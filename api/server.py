@@ -53,6 +53,7 @@ def check_mobile():
 @app.route("/read_card", methods=['POST'])
 def get_card_number():
     img_url = request.form['imageUrl']
+    print('type(img_url): %s\n' % (type(img_url)))
     print('img_url: %s\n' % (img_url))
     raw_data = requests.get(img_url).content
     print('raw_data (type): %s\n' % (raw_data))
