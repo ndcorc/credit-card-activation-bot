@@ -52,7 +52,12 @@ def check_mobile():
 
 @app.route("/read_card", methods=['POST'])
 def get_card_number():
-    img64 = base64.b64encode(requests.get(request.form['imageUrl']).content)
+    img_url = request.form['imageUrl']
+    print('img_url: %s\n' % (img_url))
+    raw_data = requests.get(img_url).content
+    print('raw_data (type): %s\n' % (raw_data))
+    img64 = base64.b64encode(raw_data)
+    print('img64: %s' % (img64))
     card_type, card_number = ocr.get_card_number(img64)
     return jsonify({
         "success": True,
