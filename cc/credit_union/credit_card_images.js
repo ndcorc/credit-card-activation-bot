@@ -45,8 +45,8 @@ module.exports = {
 					var card = MessageModel.cardObject(title, null, url, null, [action])
 					cards.push(card)
 				}
-				var txnCardConversationMessage = MessageModel.cardConversationMessage('horizontal', cards);
-				conversation.reply(txnCardConversationMessage);
+				var message = MessageModel.cardConversationMessage('horizontal', cards);
+				conversation.reply(message);
 				conversation.keepTurn(true);
 				conversation.transition(true);   
 			} else {

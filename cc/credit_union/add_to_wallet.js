@@ -31,6 +31,15 @@ module.exports = {
         var wallet_badge = "https://support.apple.com/library/content/dam/edam/applecare/images/en_US/iOS/add-to-apple-wallet-logo.png";
         var pkpass = "http://129.146.81.61:8888/download.pkpass?cc="+cc_image;
         
+        var MessageModel = conversation.MessageModel();
+        var title = "Add To Wallet";
+        var imgUrl = wallet_badge;
+        var action = MessageModel.urlActionObject(null , null, pkpass);
+        //var card = MessageModel.cardObject(title, null, imgUrl, pkpass, [action])
+        //var txnCardConversationMessage = MessageModel.cardConversationMessage('horizontal', cards);
+        var message = MessageModel.attachmentConversationMessage('image', imgUrl, [action]);
+        conversation.reply(message);
+        /*
         var add_button = {
             "attachment": {
                 "type": "template",
@@ -60,9 +69,9 @@ module.exports = {
                 }
             }
         }
-
         console.log(add_button);
         conversation.reply(add_button);
+        */
         conversation.keepTurn(true);
         conversation.transition();
         done();
