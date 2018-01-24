@@ -26,7 +26,9 @@ module.exports = {
         };
         */
         var cc_image = conversation.properties().cc_image;
-        console.log(cc_image);
+        var logMsg = '\nAddToWallet\n______________________________________________________________\n'
+        logMsg +=  '______________________________________________________________\n'+cc_image+'\n\n'
+        console.log(logMsg);
 
         var wallet_badge = "https://support.apple.com/library/content/dam/edam/applecare/images/en_US/iOS/add-to-apple-wallet-logo.png";
         var pkpass = "http://129.146.81.61:8888/download.pkpass?cc="+cc_image;
