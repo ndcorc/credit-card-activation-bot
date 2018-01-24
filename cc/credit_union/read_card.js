@@ -24,7 +24,7 @@ module.exports = {
         var options = { 
             method: 'POST',
             url: 'http://129.146.81.61:8888/read_card',
-            body: { imageUrl: cardImage["url"] }
+            body: { "imageUrl": cardImage["url"] }
         };
 
         request(options, function (err, res, body) {
