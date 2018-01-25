@@ -23,7 +23,7 @@ module.exports = {
 
 		var options = { 
 			method: 'GET',
-			url: 'http://129.146.81.61:8888/get_images?mobile=' + phoneNumber,
+			url: 'https://129.146.81.61:8888/get_images?mobile=' + phoneNumber,
 		};
 		
 		request(options, function (err, res, body) {

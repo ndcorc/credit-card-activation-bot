@@ -23,7 +23,7 @@ module.exports = {
 
         var options = { 
             method: 'POST',
-            url: 'http://129.146.81.61:8888/read_card',
+            url: 'https://129.146.81.61:8888/read_card',
             form: { imageUrl: cardImage }
         };
 
