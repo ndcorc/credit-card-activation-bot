@@ -36,10 +36,14 @@ module.exports = {
         var MessageModel = conversation.MessageModel();
         var title = "Add To Wallet";
         var imgUrl = wallet_badge;
-        var action = MessageModel.urlActionObject(null , null, pkpass);
+        var action = MessageModel.urlActionObject(title , null, pkpass);
         var card = MessageModel.cardObject(title, null, imgUrl, null, [action]);
         var message = MessageModel.cardConversationMessage('horizontal', [card]);
 
+        conversation.reply(message);
+        conversation.keepTurn(false);
+        conversation.transition();
+        done();
         /*
         var add_button = {
             "attachment": {
@@ -78,9 +82,5 @@ module.exports = {
         //var message = MessageModel.rawConversationMessage(add_button);
         //conversation.reply(message);
         //var message = MessageModel.attachmentConversationMessage('image', imgUrl, [action]);
-        conversation.reply(message);
-        conversation.keepTurn(false);
-        conversation.transition();
-        done();
     }
 }
