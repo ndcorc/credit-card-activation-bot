@@ -37,7 +37,7 @@ module.exports = {
             var data = JSON.parse(body);
             if (data.success) {
                 var card_image = data.message["cc_image"];
-                conversation.variable("ccImage", card_image);
+                conversation.variable("cardImage", card_image);
                 conversation.transition("valid");
             } else {
                 conversation.transition("invalid");
