@@ -25,10 +25,11 @@ module.exports = {
         console.log(logMsg);
 
         var MessageModel = conversation.MessageModel();
-        
+
         var wallet_badge = "https://cdn.rawgit.com/ndc466/image_bank/638df57e/ios_icons/add-to-apple-wallet-badge.png";
         var pkpass = "http://129.146.81.61:8888/download.pkpass?cc="+cardImage;
         
+        /*
         var add_button = {
             "attachment": {
                 "type": "template",
@@ -60,13 +61,11 @@ module.exports = {
         }
         var message = MessageModel.rawConversationMessage(add_button);
         conversation.reply(message);
-
         conversation.keepTurn(false);
         conversation.transition();
         done();
-        
+        */
 
-        /*
         var title = "Add To Wallet";
         var imgUrl = wallet_badge;
         var action = MessageModel.urlActionObject(title , null, pkpass);
@@ -77,6 +76,6 @@ module.exports = {
         conversation.keepTurn(false);
         conversation.transition();
         done();
-        */
+        
     }
 }
