@@ -121,7 +121,7 @@ def download_pkpass():
 
 if __name__ == "__main__":
     port = int(environ.get('PORT', 8888))
-    app.run(host="0.0.0.0", port=port, ssl_context='adhoc')
+    app.run(host="0.0.0.0", port=port)
     
     
 """
