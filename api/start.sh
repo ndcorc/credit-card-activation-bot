@@ -13,7 +13,7 @@ export PYTHONPATH=${APP_HOME}/modules
 #export LD_LIBRARY_PATH=${APP_HOME}/lib/instantclient_12_2:${APP_HOME}/lib/x86_64-linux-gnu
 
 # Install Python packages into local modules folder
-python -m pip install --upgrade pip
-pip install -r requirements.txt -t ${PYTHONPATH}
+python -m pip3 install --upgrade pip3
+pip3 install -r requirements.txt -t ${PYTHONPATH}
 
-python ${APP_HOME}/server.py 
+python3 ${APP_HOME}/server.py 
