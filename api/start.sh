@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Define PYTHONPATH as local modules folder
-export PYTHONPATH=${APP_HOME}/modules
+#export PYTHONPATH=${APP_HOME}/modules
 
 # Extract LIBAOI libs from Debian package (into ./lib/x86_64-linux-gnu)
 #dpkg-deb -R libaio1_0.3.110-1_amd64.deb ${APP_HOME}
@@ -13,7 +13,7 @@ export PYTHONPATH=${APP_HOME}/modules
 #export LD_LIBRARY_PATH=${APP_HOME}/lib/instantclient_12_2:${APP_HOME}/lib/x86_64-linux-gnu
 
 # Install Python packages into local modules folder
-python -m pip3 install --upgrade pip3
-pip3 install -r requirements.txt -t ${PYTHONPATH}
-
-python3 ${APP_HOME}/server.py 
+export PYTHONPATH=modules
+python server.py
+#pip install -r requirements.txt -t ${PYTHONPATH}
+#python ${APP_HOME}/server.py 
