@@ -22,7 +22,7 @@ module.exports = {
 
         var options = { 
             method: 'GET',
-            url: 'https://129.146.81.61:8888/check_mobile?mobile=' + phoneNumber,
+            url: 'https://CreditUnionAPI-gse00002305.apaas.em2.oraclecloud.com/check_mobile?mobile=' + phoneNumber,
         };
 
         request(options, function (err, res, body) {

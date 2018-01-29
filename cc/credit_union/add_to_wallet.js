@@ -27,7 +27,7 @@ module.exports = {
         var MessageModel = conversation.MessageModel();
 
         var wallet_badge = "https://raw.githubusercontent.com/ndc466/image_bank/638df57e/ios_icons/add-to-apple-wallet-badge.png";
-        var pkpass = "https://129.146.81.61:8888/download.pkpass?cc="+cardImage;
+        var pkpass = "https://CreditUnionAPI-gse00002305.apaas.em2.oraclecloud.com/download.pkpass?cc="+cardImage;
         
         /*
         var add_button = {

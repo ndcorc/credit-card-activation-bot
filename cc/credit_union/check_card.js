@@ -27,9 +27,9 @@ module.exports = {
 
         var options = { 
             method: 'GET',
-            url: 'https://129.146.81.61:8888/check_card?mobile=' + phoneNumber + '&cardNumber=' + cardNumber + '&cvc=' + cvc,
+            url: 'https://CreditUnionAPI-gse00002305.apaas.em2.oraclecloud.com/check_card?mobile=' + phoneNumber + '&cardNumber=' + cardNumber + '&cvc=' + cvc,
         };
-        console.log('https://129.146.81.61:8888/check_card?mobile=' + phoneNumber + '&cardNumber=' + cardNumber + '&cvc=' + cvc);
+        console.log('https://CreditUnionAPI-gse00002305.apaas.em2.oraclecloud.com/check_card?mobile=' + phoneNumber + '&cardNumber=' + cardNumber + '&cvc=' + cvc);
 
         request(options, function (err, res, body) {
             if (err) throw new Error(err);
